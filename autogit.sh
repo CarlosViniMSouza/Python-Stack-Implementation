@@ -1,4 +1,4 @@
 git add -A
-git commit -m "code/code_num1.py -> add"
+git commit -m "code_num1.py -> finished"
 git push
 git status

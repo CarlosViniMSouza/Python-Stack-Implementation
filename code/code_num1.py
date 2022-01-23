@@ -1,3 +1,12 @@
+"""
+-> Usando a lista para criar uma pilha Python
+
+A estrutura de lista interna que você provavelmente usa com frequência
+em seus programas pode ser usada como uma pilha. Em vez de .push(), você
+pode usar .append() para adicionar novos elementos ao topo de sua pilha,
+enquanto .pop() remove os elementos na ordem LIFO:
+"""
+
 myStack = []
 
 myStack.append('a')
