@@ -21,3 +21,17 @@
 ### Agora você decidiu desfazer todas as três alterações, então você pressiona o comando desfazer. Ele pega o item no topo da pilha, que estava recuando o comentário, e remove isso da pilha:
 
 ![img4_stack](https://files.realpython.com/media/stack_pop_indent.e28029c81831.png)
+
+### Seu editor desfaz o recuo e a pilha de desfazer agora contém dois itens. Esta operação é o oposto de `push` e é comumente chamada de `pop`.
+
+### Quando você pressiona desfazer novamente, o próximo item é retirado da pilha:
+
+![img5_stack](https://files.realpython.com/media/stack_pop_delete_word.89f14f6ed390.png)
+
+### Isso remove o item Excluir palavra, deixando apenas uma operação na pilha.
+
+### Finalmente, se você clicar em Desfazer uma terceira vez, o último item será retirado da pilha:
+
+![img6_stack](https://files.realpython.com/media/stack_pop_add_function.a4f66332971a.png)
+
+### A pilha de desfazer agora está vazia. Clicar em _Desfazer_ novamente depois disso não terá efeito porque sua pilha de desfazer está vazia, pelo menos na maioria dos editores. Você verá o que acontece quando chama `.pop()` em uma pilha vazia nas descrições de implementação abaixo.
