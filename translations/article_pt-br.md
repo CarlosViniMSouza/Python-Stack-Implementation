@@ -190,3 +190,9 @@ _queue.Empty
 ### Frequentemente, essa pequena lentidão não importa para a velocidade geral do programa, mas se você mediu seu desempenho e descobriu que suas operações de pilha são o gargalo, pode valer a pena alternar cuidadosamente para um `deque`.
 
 ### Eu gostaria de enfatizar novamente que mudar de `LifoQueue` para `deque` porque é mais rápido sem ter medidas mostrando que suas operações de pilha são um gargalo é um exemplo de [otimização prematura](https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize). Não faça isso.
+
+## Pilhas Python: Qual implementação você deve usar?
+
+### Em geral, você deve usar um `deque` se não estiver usando threading. Se você estiver usando threading, deve usar um `LifoQueue`, a menos que tenha medido seu desempenho e descoberto que um pequeno aumento na velocidade para empurrar e estourar fará diferença suficiente para garantir os riscos de manutenção.
+
+### `lista` pode ser familiar, mas deve ser evitada porque pode ter problemas de realocação de memória. As interfaces para `deque` e `lista` são idênticas, e `deque` não tem esses problemas, o que torna `deque` a melhor escolha para sua pilha Python não encadeada.
