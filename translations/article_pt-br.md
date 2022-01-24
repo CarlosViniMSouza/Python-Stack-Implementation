@@ -136,3 +136,57 @@ Process finished with exit code 1
 ```
 
 ### Isso parece quase idêntico ao exemplo de `lista` acima. Neste ponto, você pode estar se perguntando por que os desenvolvedores principais do Python criariam duas estruturas de dados com a mesma aparência.
+
+## Pilhas e Threading do Python
+
+### As pilhas do Python também podem ser úteis em programas multithread, mas se você não estiver interessado em threading, pode pular esta seção com segurança e pular para o resumo.
+
+### As duas opções que você viu até agora, `lista` e `deque`, se comportam de forma diferente se o seu programa tiver threads.
+
+### Para começar pelo mais simples, você nunca deve usar `lista` para qualquer estrutura de dados que possa ser acessada por vários threads. `lista` não é thread-safe.
+
+**Observação**: se você precisar de uma atualização sobre segurança de encadeamento e condições de corrida, confira [Uma Introdução a Threading em Python](https://realpython.com/intro-to-python-threading/).
+
+### Embora a interface para lista e deque fosse semelhante, o LifoQueue usa .put() e .get() para adicionar e remover dados da pilha
+
+```python
+from queue import LifoQueue
+myStack = LifoQueue()
+
+myStack.put('a')
+myStack.put('b')
+myStack.put('c')
+
+print(myStack)
+# Output: <queue.LifoQueue object at 0x7f408885e2b0>
+
+print(myStack.get())
+# Output: 'c'
+print(myStack.get())
+# Output: 'b'
+print(myStack.get())
+# Output: 'a'
+
+# myStack.get() <--- waits forever
+print(myStack.get_nowait())
+"""
+Output:
+
+Traceback (most recent call last):
+  File "E:\Programacao\PythonDjango\Python-Stack\code\code_num3.py", line 24, in <module>
+    print(myStack.get_nowait())
+  File "C:\Users\CarlosViniMSouza\AppData\Local\Programs\Python\Python310\lib\queue.py", line 199, in get_nowait
+    return self.get(block=False)
+  File "C:\Users\CarlosViniMSouza\AppData\Local\Programs\Python\Python310\lib\queue.py", line 168, in get
+    raise Empty
+_queue.Empty
+"""
+```
+
+### Ao contrário do `deque`, o `LifoQueue` foi projetado para ser totalmente seguro para threads. Todos os seus métodos são seguros para uso em um ambiente encadeado. Ele também adiciona tempos limite opcionais às suas operações que podem frequentemente ser um recurso obrigatório em programas encadeados.
+
+### No entanto, essa segurança de thread completa tem um custo. Para alcançar esta segurança de rosca, O `LifoQueue` precisa fazer um pouco de trabalho extra em cada operação, o que significa que levará um pouco mais de tempo.
+
+### Frequentemente, essa pequena lentidão não importa para a velocidade geral do programa, mas se você mediu seu desempenho e descobriu que suas operações de pilha são o gargalo, pode valer a pena alternar cuidadosamente para um `deque`.
+
+### Eu gostaria de enfatizar novamente que mudar de `LifoQueue` para `deque` porque é mais rápido sem ter medidas mostrando que suas operações de pilha são um gargalo é um exemplo de [otimização prematura](https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize). Não faça isso.

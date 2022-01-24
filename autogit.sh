@@ -1,4 +1,4 @@
 git add -A
-git commit -m "Topic: Using collections.deque to Create a Python Stack -> add | Next Topic: Python Stacks and Threading"
+git commit -m "Topic: Python Stacks and Threading -> add & finished | Next Topic: Python Stacks: Which Implementation Should You Use?"
 git push
 git status
