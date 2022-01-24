@@ -196,3 +196,16 @@ _queue.Empty
 ### Em geral, você deve usar um `deque` se não estiver usando threading. Se você estiver usando threading, deve usar um `LifoQueue`, a menos que tenha medido seu desempenho e descoberto que um pequeno aumento na velocidade para empurrar e estourar fará diferença suficiente para garantir os riscos de manutenção.
 
 ### `lista` pode ser familiar, mas deve ser evitada porque pode ter problemas de realocação de memória. As interfaces para `deque` e `lista` são idênticas, e `deque` não tem esses problemas, o que torna `deque` a melhor escolha para sua pilha Python não encadeada.
+
+## Conclusão
+
+### Agora você sabe o que é uma pilha e viu situações em que ela pode ser usada em programas da vida real. Você avaliou três opções diferentes para implementar pilhas e viu que o `deque` é uma ótima opção para programas não encadeados. Se você estiver implementando uma pilha em um ambiente de encadeamento, provavelmente é uma boa ideia usar um `LifoQueue`.
+
+### Agora você é capaz de:
+
+```
+° Reconhecer quando uma pilha seria uma boa estrutura de dados
+° Selecione qual implementação é adequada para o seu problema
+```
+
+### Se você ainda tiver dúvidas, sinta-se à vontade para entrar em contato nas seções de comentários abaixo. Agora, vá escrever algum código, já que você ganhou outra ferramenta para ajudá-lo a resolver seus problemas de programação!
