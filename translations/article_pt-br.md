@@ -82,3 +82,15 @@ IndexError: pop from empty list
 Process finished with exit code 1
 """
 ```
+
+### Você pode ver no comando final que uma `lista` irá gerar um `IndexError` se você chamar `.pop()` em uma pilha vazia.
+
+### `lista` tem a vantagem de ser familiar. Você sabe como funciona e provavelmente já o usou em seus programas.
+
+### Infelizmente, a `lista` tem algumas deficiências em comparação com outras estruturas de dados que você verá. O maior problema é que ele pode ter problemas de velocidade à medida que cresce. Os itens em uma `lista` são armazenados com o objetivo de fornecer acesso rápido a elementos aleatórios na `lista`. Em um nível alto, isso significa que os itens são armazenados um ao lado do outro na memória.
+
+### Se sua pilha ficar maior do que o bloco de memória que a contém atualmente, o Python precisa fazer algumas alocações de memória. Isso pode fazer com que algumas chamadas `.append()` demorem muito mais do que outras.
+
+### Há um problema menos grave também. Se você usar `.insert()` para adicionar um elemento à sua pilha em uma posição diferente do final, pode demorar muito mais. Isso normalmente não é algo que você faria com uma pilha, no entanto.
+
+### A próxima estrutura de dados o ajudará a contornar o problema de realocação que você viu com a `lista`.
