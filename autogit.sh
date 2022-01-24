@@ -1,4 +1,4 @@
 git add -A
-git commit -m "code part -> ok | Lets go to check the process of summarize the theory"
+git commit -m "translations/article_pt-br.md -> add | testing format image in file"
 git push
 git status
