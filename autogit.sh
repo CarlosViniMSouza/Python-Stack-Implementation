@@ -1,4 +1,4 @@
 git add -A
-git commit -m "Topic: What is a Stack / Part2 -> add | Next Topic: Implementing a Python Stack"
+git commit -m "Topic: Implementing a Python Stack / Part1 -> add"
 git push
 git status

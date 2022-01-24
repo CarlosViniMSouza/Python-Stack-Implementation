@@ -35,3 +35,50 @@
 ![img6_stack](https://files.realpython.com/media/stack_pop_add_function.a4f66332971a.png)
 
 ### A pilha de desfazer agora está vazia. Clicar em _Desfazer_ novamente depois disso não terá efeito porque sua pilha de desfazer está vazia, pelo menos na maioria dos editores. Você verá o que acontece quando chama `.pop()` em uma pilha vazia nas descrições de implementação abaixo.
+
+## Implementando uma pilha Python
+
+### Existem algumas opções quando você está implementando uma pilha Python. Este artigo não cobrirá todos eles, apenas os básicos que atenderão a quase todas as suas necessidades. Você se concentrará em usar estruturas de dados que fazem parte da biblioteca Python, em vez de escrever suas próprias ou usar pacotes de terceiros.
+### Você verá as seguintes implementações de pilha do Python:
+
+```
+° Lista
+° coleções.deque
+° fila.LifoQueue
+```
+
+## Usando a `lista` para criar uma pilha Python
+
+### A estrutura de `lista` interna que você provavelmente usa com frequência em seus programas pode ser usada como uma pilha. Em vez de `.push()`, você pode usar [`.append()`](https://realpython.com/python-append/) para adicionar novos elementos ao topo de sua pilha, enquanto `.pop()` remove os elementos na ordem LIFO:
+
+```python
+myStack = []
+
+myStack.append('a')
+myStack.append('b')
+myStack.append('c')
+
+print(myStack)
+# Output: ['a', 'b', 'c']
+
+print(myStack.pop())
+# Output: 'c'
+
+print(myStack.pop())
+# Output: 'b'
+
+print(myStack.pop())
+# Output: 'a'
+
+print(myStack.pop())
+"""
+Output:
+
+Traceback (most recent call last):
+  File "E:\Programacao\PythonDjango\Python-Stack\code\code_num1.py", line 19, in <module>
+    print(myStack.pop())
+IndexError: pop from empty list
+
+Process finished with exit code 1
+"""
+```
